@@ -1,7 +1,10 @@
 {
-  "name": "material-cra-ts",
-  "version": "5.0.0",
+  "name": "kpis-people-analytics-frontend",
+  "version": "0.1.0",
+  "description": "KPIS - People Analytics Code Challenge",
+  "author": "Bruno Cesar",
   "private": true,
+  "license": "UNLICENSED",
   "dependencies": {
     "@emotion/react": "latest",
     "@emotion/styled": "latest",
