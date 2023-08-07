@@ -61,8 +61,9 @@ export default function Graphics(id : any) {
   const [resultData, resultCall] = useState<any>([])
 
   const fetchData = async () => {
+    const domain = 'https://7wukk690g2.execute-api.us-east-1.amazonaws.com/dev';
     const response = await axios.get(
-      `http://localhost:4000/users/get-statistics?user_id=${user_id}&number_of_months=8`
+      `${domain}/users/get-statistics?user_id=${user_id}&number_of_months=8`
     );
     if (response.data && response.data.headcounts) {
       headcountData = response.data.headcounts

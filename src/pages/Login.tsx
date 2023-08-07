@@ -23,8 +23,9 @@ export default function Login() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
+    const domain = 'https://7wukk690g2.execute-api.us-east-1.amazonaws.com/dev';
     const response = axios.get(
-      `http://localhost:4000/users/login?email=${data.get('email')}`
+      `${domain}/users/login?email=${data.get('email')}&v=2`
     ).then((response) => {
       console.log(response.data);
       if (response.data && response.data.user_id) {
