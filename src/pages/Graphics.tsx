@@ -28,7 +28,7 @@ const LinearBar = (props: any) => {
   return (
     <ResponsiveBar
       data={props.dataSet}
-      keys={[props.sideLegend]}
+      keys={[props.keys]}
       indexBy="month"
       margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
       padding={0.4}
@@ -61,9 +61,9 @@ export default function Graphics(id : any) {
   const [resultData, resultCall] = useState<any>([])
 
   const fetchData = async () => {
-    const domain = 'https://7wukk690g2.execute-api.us-east-1.amazonaws.com/dev';
+    const domain = 'https://8ex1guhne6.execute-api.us-east-1.amazonaws.com/dev/';
     const response = await axios.get(
-      `${domain}/users/get-statistics?user_id=${user_id}&number_of_months=8`
+      `${domain}/users/get-statistics?user_id=${user_id}&number_of_months=48`
     );
     if (response.data && response.data.headcounts) {
       headcountData = response.data.headcounts
@@ -86,18 +86,20 @@ export default function Graphics(id : any) {
   }, [])
 
   return (
-    <Container maxWidth="sm">
-      <Box sx={{ my: 4 }}>
+    <Container>
+      <Box sx={{ my: 8 }}>
         <div style={{height: "300px"}}>
           <LinearBar
             dataSet={headcountData}
-            sideLegend={'value'}
+            keys={'value'}
+            sideLegend={'Headcount / Previous Months'}
             maxValue={'auto'}/>
         </div>
         <div style={{height: "300px"}}>
           <LinearBar
             dataSet={turnoverData}
-            sideLegend={'value'}
+            keys={'value'}
+            sideLegend={'Turnover % / Previous Months'}
             maxValue={100}/>
         </div>
       </Box>
